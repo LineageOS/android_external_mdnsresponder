@@ -357,6 +357,7 @@ static char *DNSTypeName(unsigned short rr_type)
     }
 }
 
+#if 0
 static unsigned short swap16(unsigned short x)
 {
     unsigned char *ptr = (unsigned char *)&x;
@@ -368,6 +369,8 @@ static unsigned int swap32(unsigned int x)
     unsigned char *ptr = (unsigned char *)&x;
     return (unsigned int)((unsigned int)ptr[0] << 24 | (unsigned int)ptr[1] << 16 | (unsigned int)ptr[2] << 8 | ptr[3]);
 }
+#endif
+
 static unsigned int keytag(unsigned char *key, unsigned int keysize)  
 {
     unsigned long ac;

@@ -6,6 +6,8 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES :=  mDNSPosix/PosixDaemon.c    \
                     mDNSPosix/mDNSPosix.c      \
                     mDNSPosix/mDNSUNP.c        \
+                    mDNSCore/anonymous.c       \
+                    mDNSCore/CryptoAlg.c       \
                     mDNSCore/mDNS.c            \
                     mDNSCore/DNSDigest.c       \
                     mDNSCore/uDNS.c            \

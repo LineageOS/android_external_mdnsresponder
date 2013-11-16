@@ -117,7 +117,7 @@ struct ifi_info *get_ifi_info_linuxv6(int family, int doaliases)
                     continue;   /* already processed this interface */
                 myflags = IFI_ALIAS;
             }
-            memcpy(lastname, ifname, IFNAMSIZ);
+            memcpy(lastname, ifname, sizeof(ifname));
             ifi = (struct ifi_info*)calloc(1, sizeof(struct ifi_info));
             if (ifi == NULL) {
                 goto gotError;
@@ -164,13 +164,13 @@ struct ifi_info *get_ifi_info_linuxv6(int family, int doaliases)
 
 
             /* Add interface name */
-            memcpy(ifi->ifi_name, ifname, IFI_NAME);
+            memcpy(ifi->ifi_name, ifname, sizeof(ifname));
 
             /* Add interface index */
             ifi->ifi_index = index;
 
             /* Add interface flags*/
-            memcpy(ifr.ifr_name, ifname, IFNAMSIZ);
+            memcpy(ifr.ifr_name, ifname, sizeof(ifname));
             if (ioctl(sockfd, SIOCGIFFLAGS, &ifr) < 0) {
                 if (errno == EADDRNOTAVAIL) {
                     /*

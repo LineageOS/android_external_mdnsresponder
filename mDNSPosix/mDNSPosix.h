@@ -19,6 +19,7 @@
 #define __mDNSPlatformPosix_h
 
 #include <signal.h>
+#include <sys/select.h>
 #include <sys/time.h>
 
 #ifdef  __cplusplus
